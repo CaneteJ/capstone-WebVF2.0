@@ -78,7 +78,7 @@
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    border-radius: 50px;
+    border-radius: 20px;
   }
 
   .card-image {
@@ -105,7 +105,7 @@
   
   .card-value {
     font-size: 0.9rem;
-    color: #555;
+    color: white;
     margin-left: 5px;
   }
   
@@ -197,7 +197,8 @@
 
   .admin-container {
     display: flex;
-    align-items: center; 
+    align-items: center;
+    justify-content: center; /* Add this line */
     margin-bottom: 60px;
   }
  
@@ -233,15 +234,24 @@
     font-size: 1.2rem; 
     font-weight: bold; 
   }  
-  .card {
-      cursor: pointer; /* Makes the mouse cursor a pointer, indicating it's clickable */
-      transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Smooth transition for transform and shadow */
-  }
-  
-  .card:hover {
-      transform: scale(1.05); /* Scales up the card a bit when hovered */
-      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Adds shadow to lift the card */
-  }
+  @keyframes wiggle {
+    0% { transform: rotate(-5deg); }
+    50% { transform: rotate(5deg); }
+    100% { transform: rotate(-5deg); }
+}
+
+.card {
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+}
+
+.card:hover {
+    animation: wiggle 0.5s infinite; /* Apply the wiggle animation */
+    transform: scale(1.05) rotateY(10deg);
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
   
   /* Colors for different card types */
   .card-occupied {
@@ -291,3 +301,5 @@
   .button-close:hover {
       opacity: 0.8;
   }
+
+  

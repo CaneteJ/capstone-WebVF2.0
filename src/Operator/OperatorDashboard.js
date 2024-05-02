@@ -118,8 +118,8 @@ function OperatorDashboard() {
     <div className="gradient-custom-2" style={{ backgroundColor: 'white' }}>
     <nav className="navbar navbar-expand-lg navbar-dark" style={{ backgroundColor: "#003851" }}>
       <div className="container">
-        <a className="navbar-brand">
-          Spotwise
+        <a className="navbar-brand" style={{padding: 20}}>
+    
         </a>
         
         <p style={styles.welcomeMessage}>

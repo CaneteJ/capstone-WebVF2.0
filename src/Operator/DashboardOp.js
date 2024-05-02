@@ -241,7 +241,7 @@ function DashboardOp() {
                 data = pendingAccounts || []; // Ensure data is an array
                 headers = ["Email", "Contact Number", "Plate Number", "Slot Number"];
                 return (
-                    <table className="table align-middle mb-0 bg-white">
+                    <table className="table align-middle mb-0 table-striped table-hover" style={{ maxWidth: '100%'}}> 
                     <thead className="bg-light">
                         <tr>
                         <th>Name</th>
@@ -273,11 +273,11 @@ function DashboardOp() {
                         </td>
                         <td>Senior</td>
                         <td>
-                            <span className="badge badge-success rounded-pill d-inline">Active</span>
+                            <span className="badge badge-success rounded-pill d-inline" style={{color: '#39FF14'}}>Active</span>
                         </td>
                         <td>Senior</td>
                         <td>
-                            <span className="badge badge-success rounded-pill d-inline">Active</span>
+                            <span className="badge badge-success rounded-pill d-inline" style={{color: '#39FF14'}}>Active</span>
                         </td>
                         <td>
                             <button type="button" className="btn btn-link btn-sm btn-rounded">
@@ -303,58 +303,90 @@ function DashboardOp() {
                 return null;
         }
         return (
-            <section className="intro">
-                <div className="bg-image h-100" style={{ backgroundColor: '#6095F0' }}>
-                    <div className="mask d-flex align-items-center h-100">
-                        <div className="container">
-                            <div className="row justify-content-center">
-                                <div className="col-12">
-                                    <div className="card shadow-2-strong" style={{ backgroundColor: '#f5f7fa' }}>
-                                        <div className="card-body">
-                                            <div className="table-responsive">
-                                                <table className="table table-borderless mb-0">
-                                                    <thead>
-                                                        <tr>
-                                                            <th scope="col">
-                                                                <div className="form-check">
-                                                                    <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
-                                                                </div>
-                                                            </th>
-                                                            {headers.map((header, index) => (
-                                                                <th scope="col" key={index}>{header.toUpperCase()}</th>
-                                                            ))}
-                                                            <th scope="col">Action</th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        {data.map((item, index) => (
-                                                            <tr key={index}>
-                                                                <th scope="row">
-                                                                    <div className="form-check">
-                                                                        <input className="form-check-input" type="checkbox" value="" id={`flexCheckDefault${index}`} checked={item.checked} />
-                                                                    </div>
-                                                                </th>
-                                                                {headers.map((header, subIndex) => (
-                                                                    <td key={`${index}-${subIndex}`}>{item[header.toLowerCase().replace(/ /g, '')]}</td>
-                                                                ))}
-                                                                <td>
-                                                                    <button type="button" className="btn btn-danger btn-sm px-3" onClick={() => handleDecline(item.id)}>
-                                                                        <i className="fas fa-times">X</i>
-                                                                    </button>
-                                                                </td>
-                                                            </tr>
+<div style={{ 
+    overflowY: 'auto', 
+    maxHeight: '50%', 
+    maxWidth: '90%', 
+    justifyContent: 'center', 
+    margin: 'auto', 
+    borderRadius: '2%', 
+    borderRadius: 10,
+    borderStyle: 'solid', // Set border style to solid
+    borderColor: '#39FF14',
+    boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)', // Box shadow for depth
+   
+    // Custom scrollbar design
+  // Set the width of the scrollbar
+
+  scrollbarColor: '#39FF14 #f8f9fa', // Set the color of the scrollbar thumb and track
+    WebkitOverflowScrolling: 'touch', // Enable smooth scrolling on iOS
+    '&::-webkit-scrollbar': {
+        width: '20px', // Set the width of the scrollbar
+        height: '20px', // Set the height of the scrollbar
+    },
+    '&::-webkit-scrollbar-thumb': {
+        backgroundColor: '#98FB98', // Set the color of the scrollbar thumb
+        borderRadius: '15px', // Set a larger border radius for a softer appearance
+    },
+    '&::-webkit-scrollbar-track': {
+        backgroundColor: '#f8f9fa', // Set the color of the scrollbar track
+        borderRadius: '15px', // Set a larger border radius for a softer appearance
+    },
+}}>
+    <section className="intro">
+        <div className="bg-image h-100" style={{ backgroundColor: '#132B4B' }}>
+            <div className="mask d-flex align-items-center h-100">
+                <div className="container">
+                    <div className="row justify-content-center">
+                        <div className="col-12">
+                            <div >
+                                <div className="card-body">
+                                    <div className="table-responsive">
+                                        <table className="table table-borderless mb-0">
+                                            <thead>
+                                                <tr>
+                                                    <th cope="col" style={{ width: '10%', padding: '10px'}}>
+                                                        <div className="form-check" >
+                                                            <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+                                                        </div>
+                                                    </th>
+                                                    {headers.map((header, index) => (
+                                                        <th scope="col" key={index}>{header.toUpperCase()}</th>
+                                                    ))}
+                                                    <th scope="col">Action</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                {data.map((item, index) => (
+                                                    <tr key={index}>
+                                                        <th scope="row">
+                                                            <div className="form-check">
+                                                                <input className="form-check-input" type="checkbox" value="" id={`flexCheckDefault${index}`} checked={item.checked} />
+                                                            </div>
+                                                        </th>
+                                                        {headers.map((header, subIndex) => (
+                                                            <td key={`${index}-${subIndex}`}>{item[header.toLowerCase().replace(/ /g, '')]}</td>
                                                         ))}
-                                                    </tbody>
-                                                </table>
-                                            </div>
-                                        </div>
+                                                        <td>
+                                                            <button type="button" className="btn btn-danger btn-sm px-3" onClick={() => handleDecline(item.id)}>
+                                                                <i className="fas fa-times">X</i>
+                                                            </button>
+                                                        </td>
+                                                    </tr>
+                                                ))}
+                                            </tbody>
+                                        </table>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </section>
+            </div>
+        </div>
+    </section>
+</div>
+
         );
     };
 
@@ -389,14 +421,23 @@ function DashboardOp() {
                         src="customer.jpg"
                         alt="Admin"
                         className="admin-pic" 
-                        style={{ width: '50px', marginRight: '10px' }} 
+                        style={{ width: '30px', marginRight: '5px', marginLeft: '-50px' }} 
                     />
                     {/* Display the user's email if available */}
-                    <h1 style={{fontFamily:'Helvetica', fontSize: 18}}>Welcome {user?.firstName || 'No name found'}</h1>
+                    <h1 style={{fontFamily:'Helvetica', fontSize: 16}}>Welcome {user?.firstName || 'No name found'}</h1>
                 </div>
-  <p><a href ='OperatorProfile' style={{ color: 'white', textDecoration: 'none' }}> Menu</a></p>
- 
-       
+                <div class="wrapper">
+    <div class="side">
+        <h2>Menu</h2>
+        <ul>
+            <li><a href="DashboardOp"><i class="fas fa-home"></i>Home</a></li>
+            <li><a href='Reservation'><i class="fas fa-user"></i>Manage Reservation</a></li>
+            <li><a href='OperatorDashboard'><i class="fas fa-address-card"></i>Records</a></li>
+            <li><a href="OperatorProfile"><i class="fas fa-blog"></i>Profile</a></li>
+            <li><a href="/"><i className="fas fa-sign-out-alt" style={{ color: 'red' }}></i>Logout</a></li>
+        </ul> 
+    </div>
+    </div>
       </div>
       <div className="main-content">
                 <div className="summary-cards">
@@ -473,47 +514,53 @@ function AddVehicleForm({ onSearch, floorOptions, handleAddToSlot }) {
     };
 
     return (
-        <Form>
-            <Row className="mb-3">
-                <Form.Group as={Col} controlId="formGridEmail">
-                    <Form.Control type="email" placeholder="Enter email" />
-                </Form.Group>
-                <Form.Group as={Col} controlId="formGridPlateNumber">
-                    <Form.Control
-                        type="text"
-                        placeholder="Plate Number"
-                        value={plateNumber}
-                        onChange={(e) => setPlateNumber(e.target.value)}
-                    />
-                </Form.Group>
-            </Row>
-            <Form.Group className="mb-3" controlId="formGridContactNumber">
-                <Form.Control placeholder="Contact Number" />
-            </Form.Group>
-            <Row className="mb-3">
-                <Form.Group as={Col} controlId="formGridTimeIn">
-                    <Form.Control placeholder="Time In" />
-                </Form.Group>
-                <Form.Group as={Col} controlId="formGridFloor">
-                <Form.Select defaultValue="Choose..." onChange={handleFloorChange}>
-    <option>Choose...</option>
-    {floorOptions.map((floor, index) => (
-        <option key={index} value={floor.floorName}>{floor.floorName}</option>
-    ))}
-</Form.Select>
-</Form.Group>
-<Form.Group as={Col} controlId="formGridSlotNumber">
-    <Form.Select defaultValue="Select Slot" onChange={handleSlotSelection}>
-        <option value="">Select Slot...</option>
-        {slotOptions.map((slot, index) => (
-            <option key={index} value={slot}>{slot}</option>
-        ))}
-    </Form.Select>
-</Form.Group>
-            </Row>
-            <Button variant="primary" onClick={handleSubmit}>Assign Slot</Button>
-            <Button variant="secondary" onClick={handleSearch}>Search</Button>
-        </Form>
+<Form style={{ 
+    border: '1px solid #ccc', // Add a border around the form
+    padding: '20px', // Add some padding to the form
+    borderRadius: '5px', // Add border radius for a softer appearance
+    boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)', // Add a box shadow for depth
+    margin: 10
+}}>
+    <Row className="mb-3">
+        <Form.Group as={Col} controlId="formGridEmail">
+            <Form.Control type="email" placeholder="Enter email" />
+        </Form.Group>
+        <Form.Group as={Col} controlId="formGridPlateNumber">
+            <Form.Control
+                type="text"
+                placeholder="Plate Number"
+                value={plateNumber}
+                onChange={(e) => setPlateNumber(e.target.value)}
+            />
+        </Form.Group>
+    </Row>
+    <Form.Group className="mb-3" controlId="formGridContactNumber">
+        <Form.Control placeholder="Contact Number" />
+    </Form.Group>
+    <Row className="mb-3">
+        <Form.Group as={Col} controlId="formGridTimeIn">
+            <Form.Control placeholder="Time In" />
+        </Form.Group>
+        <Form.Group as={Col} controlId="formGridFloor">
+            <Form.Select defaultValue="Choose..." onChange={handleFloorChange}>
+                <option>Choose...</option>
+                {floorOptions.map((floor, index) => (
+                    <option key={index} value={floor.floorName}>{floor.floorName}</option>
+                ))}
+            </Form.Select>
+        </Form.Group>
+        <Form.Group as={Col} controlId="formGridSlotNumber">
+            <Form.Select defaultValue="Select Slot" onChange={handleSlotSelection}>
+                <option value="">Select Slot...</option>
+                {slotOptions.map((slot, index) => (
+                    <option key={index} value={slot}>{slot}</option>
+                ))}
+            </Form.Select>
+        </Form.Group>
+    </Row>
+    <Button variant="primary" onClick={handleSubmit} style={{ backgroundColor: '#132B4B', color: '#fff', border: 'none', marginRight: '10px' }}>Assign Slot</Button>
+    <Button variant="secondary" onClick={handleSearch}>Search</Button> 
+</Form>
     );
 }
 

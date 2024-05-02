@@ -215,8 +215,8 @@ const Reservation = () => {
             <div>
                 <nav className="navbar navbar-expand-lg navbar-dark" style={{ backgroundColor: "#003851" }}>
                     <div className="container">
-                        <a className="navbar-brand">
-                            Spotwise
+                        <a className="navbar-brand" style={{padding: 20}}>
+                       
                         </a>
                     </div>
                 </nav>

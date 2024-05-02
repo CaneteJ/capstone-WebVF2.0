@@ -14,6 +14,8 @@ import { updateDoc, doc, getDoc } from "firebase/firestore";
 import { storage } from "../config/firebase";
 import { ref, uploadBytes, getDownloadURL, listAll, list } from "firebase/storage";
 import { v4 } from "uuid";
+import './operatorReserve.css';
+
 
 const OperatorReserve = () => {
     const navigate = useNavigate();
@@ -133,51 +135,34 @@ const OperatorReserve = () => {
         },
     };
     return (
-        <MDBCard style={{ marginTop: "45px", height: "px",color: "#fff" }}>
-
-            <MDBCard className="mb-4 mb-lg-0" style={{ marginTop: "40px", boxShadow: "none", border: "none" }}>
-                <MDBCardBody className="p-0">
-                    <MDBListGroup
-                        flush
-                        className="rounded-3"
-                        style={{
-                            border: "none",
-                            borderRadius: "none",
-                            boxShadow: "none",
-                        }}
-                    >
-                         <MDBListGroupItem style={{ ...listItemStyle, ...customListItemStyle }} hover className="d-flex justify-content-between align-items-center p-3" onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = listItemHoverStyle.backgroundColor)} onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "inherit")}>
-                            <MDBCardText onClick={() => handleDashboard()} style={{ fontFamily: "Georgina", fontSize: "18px", color: "black" }}>
-                                <img src="registerA.jpg" alt="Dashboard" style={{ width: "25px", marginRight: "30px" }} />
-                                Dashboard
-                            </MDBCardText>
-                            </MDBListGroupItem>
-                        <MDBListGroupItem style={{ ...listItemStyle, ...customListItemStyle }} hover className="d-flex justify-content-between align-items-center p-3" onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = listItemHoverStyle.backgroundColor)} onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "inherit")}>
-                            <MDBCardText onClick={() => handleProfileOperator()} style={{ fontFamily: "Georgina", fontSize: "18px", color: "black" }}>
-                                <img src="pofile.jpg" alt="Profile" style={{ width: "25px", marginRight: "30px" }} />
-                                View Profile
-                            </MDBCardText>
-                        </MDBListGroupItem>
-                        <MDBListGroupItem style={{ ...listItemStyle, ...customListItemStyle }} hover className="d-flex justify-content-between align-items-center p-3" onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = listItemHoverStyle.backgroundColor)} onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "inherit")}>
-                            <MDBCardText onClick={() => handleReservation()} style={{ fontFamily: "Georgina", fontSize: "18px", color: "black" }}>
-                                <img src="calendar.webp" alt="Calendar" style={{ width: "25px", marginRight: "30px" }} />
-                                Manage Reservation
-                            </MDBCardText>
-                        </MDBListGroupItem>
-                        <MDBListGroupItem style={{ ...listItemStyle, ...customListItemStyle }} hover className="d-flex justify-content-between align-items-center p-3" onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = listItemHoverStyle.backgroundColor)} onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "inherit")}>
-                            <MDBCardText onClick={() => handleRecords()} style={{ fontFamily: "Georgina", fontSize: "18px", color: "black" }}>
-                            <img src="management.jpg" alt="Management" style={{ width: "25px", marginRight: "30px" }} />
-                                Records
-                            </MDBCardText>
-                        </MDBListGroupItem>
-                            
-                        <Button onClick={handlelogin} style={{ fontFamily: "Georgina", width: "80px", backgroundColor: "rgba(4, 55,55, 0.7)", marginLeft: "80px", marginTop: "400px", border: "none" }}>
-                            Logout
-                        </Button>
-                    </MDBListGroup>
-                </MDBCardBody>
-            </MDBCard>
-        </MDBCard>
+        <div>
+        <div className="admin-dashboard" style={{ position: 'fixed', left: 0, top: 0 }}>
+            <div className="sidebar">
+                <div className="admin-container">
+                    <img 
+                        src="customer.jpg"
+                        alt="Admin"
+                        className="admin-pic" 
+                        style={{ width: '30px', marginRight: '5px', marginLeft: '-50px' }} 
+                    />
+                    {/* Display the user's email if available */}
+                    <h1 style={{fontFamily:'Helvetica', fontSize: 16}}>Welcome {user?.firstName || 'No name found'}</h1>
+                </div>
+                <div class="wrapper">
+    <div class="side">
+        <h2>Menu</h2>
+        <ul>
+            <li><a href="DashboardOp"><i class="fas fa-home"></i>Home</a></li>
+            <li><a href='Reservation'><i class="fas fa-user"></i>Manage Reservation</a></li>
+            <li><a href='OperatorDashboard'><i class="fas fa-address-card"></i>Records</a></li>
+            <li><a href="OperatorProfile"><i class="fas fa-blog"></i>Profile</a></li>
+            <li><a href="/"><i className="fas fa-sign-out-alt" style={{ color: 'red' }}></i>Logout</a></li>
+        </ul> 
+    </div>
+    </div>
+        </div>
+        </div>
+        </div>
     );
 };
 

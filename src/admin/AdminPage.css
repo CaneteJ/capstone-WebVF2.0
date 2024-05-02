@@ -1,7 +1,8 @@
 .admin-dashboard {
   display: flex;
   min-height: 100vh;
-  flex-grow: 1;}
+  flex-grow: 1;
+}
 
   
   .sidebar {
@@ -9,6 +10,7 @@
     background-color: #132B4B;
     color: white;
     padding: 20px;
+    border-top-right-radius: 100px;
   }
 
   .sidebar p {
@@ -229,9 +231,56 @@
     color: #555;
   }
   
-  
-  
   .admin-text {
     font-size: 1.2rem; 
     font-weight: bold; 
   }  
+  .wrapper{
+    display: flex;
+    position: relative;
+  }
+  
+  .wrapper .side{
+    width: 200px;
+    height: 100%;
+    padding: 30px 0px;
+    position: fixed;
+  }
+  
+  .wrapper .side h2{
+    color: #fff;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  .side ul {
+    list-style: none; /* Remove list style */
+    padding: 0; /* Remove default padding */
+  }
+  
+  .wrapper .side ul li{
+    padding: 15px;
+    border-bottom: 1px solid #bdb8d7;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    border-top: 1px solid rgba(255,255,255,0.05);
+  }    
+  
+  .wrapper .side ul li a{
+    color: white;
+    display: block;
+    text-decoration: none;
+  }
+  
+  .wrapper .side ul li a .fas{
+    width: 25px;
+  }
+  
+  .wrapper .side ul li:hover{
+    background-color: #7abdea;
+    border-radius: 10px;
+  }
+      
+  .wrapper .side ul li:hover a{
+    color: #fff;
+  }
+   

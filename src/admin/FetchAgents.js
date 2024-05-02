@@ -37,21 +37,21 @@ const FetchAgents = () => {
           />
           <span className="admin-text">Admin</span>
         </div>
-        <p>
-          <a href="AdminPage" style={{ color: 'white', textDecoration: 'none'}}>
-            Home
-          </a>
-        </p>
-        <p>
-          <a href="FetchEstablishment" style={{ color: 'white', textDecoration: 'none' }}>
-            Establishment List
-          </a>
-        </p>
-        <p>
-          <a href="FetchParkingUsers" style={{ color: 'white', textDecoration: 'none' }}>
-            Parking Seeker List
-          </a>
-        </p>
+        
+        <div class="wrapper">
+    <div class="side">
+        <h2>Menu</h2>
+        <ul>
+            <li><a href="AdminPage"><i class="fas fa-home"></i>Home</a></li>
+            <li><a href='FetchEstablishments'><i class="fas fa-user"></i>Establishment Account</a></li>
+            <li><a href='FetchParkingUsers'><i class="fas fa-address-card"></i>Parking Seeker List</a></li>
+            <li><a href='FetchAgents'><i class="fas fa-project-diagram"></i>Agents List</a></li>
+            <li><a href="#"><i class="fas fa-blog"></i>Profile</a></li>
+            <li><a href="/"><i className="fas fa-sign-out-alt" style={{ color: 'red' }}></i>Logout</a></li>
+        </ul> 
+    </div>
+    </div>
+    
       </div>
       <div className="main-content">
       <h1 className="pending" ClassName="pending" style={{marginTop: '5%', textAlign: 'center', fontWeight: 'bold' }}>Agents Account</h1>

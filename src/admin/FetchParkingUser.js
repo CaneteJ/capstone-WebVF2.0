@@ -37,21 +37,21 @@ const FetchParkingUsers = () => {
           <span className="admin-text">Admin</span>
         </div>
         <nav>
-          <p>
-            <a href="AdminPage" style={{ color: 'white', textDecoration: 'none' }}>
-              Home
-            </a>
-          </p>
-          <p>
-            <a href="FetchEstablishments" style={{ color: 'white', textDecoration: 'none' }}>
-              Establishment List
-            </a>
-          </p>
-          <p>
-            <a href="FetchAgents" style={{ color: 'white', textDecoration: 'none' }}>
-              Agents List
-            </a>
-          </p>
+
+        <div class="wrapper">
+    <div class="side">
+        <h2>Menu</h2>
+        <ul>
+            <li><a href="AdminPage"><i class="fas fa-home"></i>Home</a></li>
+            <li><a href='FetchEstablishments'><i class="fas fa-user"></i>Establishment Account</a></li>
+            <li><a href='FetchParkingUsers'><i class="fas fa-address-card"></i>Parking Seeker List</a></li>
+            <li><a href='FetchAgents'><i class="fas fa-project-diagram"></i>Agents List</a></li>
+            <li><a href="#"><i class="fas fa-blog"></i>Profile</a></li>
+            <li><a href="/"><i className="fas fa-sign-out-alt" style={{ color: 'red' }}></i>Logout</a></li>
+        </ul> 
+    </div>
+    </div>
+    
         </nav>
       </div>
       <div className="main-content">

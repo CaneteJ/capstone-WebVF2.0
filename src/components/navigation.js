@@ -200,7 +200,7 @@ const Navigation = () => {
                             </MDBCardText>
                         </MDBListGroupItem>
                         <Button onClick={handlelogin} style={{ fontFamily: "Georgina", width: "80px", backgroundColor: "rgba(4, 55,55, 0.7)", marginLeft: "80px", marginTop: "75px", border: "none" }}>
-                            Logout
+                            pullout
                         </Button>
                     </MDBListGroup>
                 </MDBCardBody>
